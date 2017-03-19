@@ -1,0 +1,1301 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api-documentation for
+    <a
+        
+        href="https://github.com/Leonidas-from-XIV/node-xml2js"
+        
+    >xml2js (v0.4.17)</a>
+</h1>
+<h4>Simple XML to JavaScript object converter.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js">module xml2js</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Builder">
+            function <span class="apidocSignatureSpan">xml2js.</span>Builder
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser">
+            function <span class="apidocSignatureSpan">xml2js.</span>Parser
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.ValidationError">
+            function <span class="apidocSignatureSpan">xml2js.</span>ValidationError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.parseString">
+            function <span class="apidocSignatureSpan">xml2js.</span>parseString
+            <span class="apidocSignatureSpan">(str, a, b)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>Builder.prototype</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>Parser.prototype</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>ValidationError.prototype</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>bom</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>defaults</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>processors</span>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.Builder">module xml2js.Builder</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Builder.Builder">
+            function <span class="apidocSignatureSpan">xml2js.</span>Builder
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.Builder.prototype">module xml2js.Builder.prototype</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Builder.prototype.buildObject">
+            function <span class="apidocSignatureSpan">xml2js.Builder.prototype.</span>buildObject
+            <span class="apidocSignatureSpan">(rootObj)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.Parser">module xml2js.Parser</a><ol>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">xml2js.Parser.</span>usingDomains</span>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.Parser">
+            function <span class="apidocSignatureSpan">xml2js.</span>Parser
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.EventEmitter">
+            function <span class="apidocSignatureSpan">xml2js.Parser.</span>EventEmitter
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.init">
+            function <span class="apidocSignatureSpan">xml2js.Parser.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.listenerCount">
+            function <span class="apidocSignatureSpan">xml2js.Parser.</span>listenerCount
+            <span class="apidocSignatureSpan">(emitter, type)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">xml2js.Parser.</span>defaultMaxListeners</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.Parser.</span>__super__</span>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.Parser.prototype">module xml2js.Parser.prototype</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.prototype.assignOrPush">
+            function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>assignOrPush
+            <span class="apidocSignatureSpan">(obj, key, newValue)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.prototype.constructor">
+            function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.prototype.parseString">
+            function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>parseString
+            <span class="apidocSignatureSpan">(str, cb)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.prototype.processAsync">
+            function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>processAsync
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.Parser.prototype.reset">
+            function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.ValidationError">module xml2js.ValidationError</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.ValidationError.ValidationError">
+            function <span class="apidocSignatureSpan">xml2js.</span>ValidationError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">xml2js.ValidationError.</span>stackTraceLimit</span>
+            
+        </li>
+        
+        <li>
+            
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.ValidationError.</span>__super__</span>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.ValidationError.prototype">module xml2js.ValidationError.prototype</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.ValidationError.prototype.constructor">
+            function <span class="apidocSignatureSpan">xml2js.ValidationError.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.bom">module xml2js.bom</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.bom.stripBOM">
+            function <span class="apidocSignatureSpan">xml2js.bom.</span>stripBOM
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.processors">module xml2js.processors</a><ol>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.processors.firstCharLowerCase">
+            function <span class="apidocSignatureSpan">xml2js.processors.</span>firstCharLowerCase
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.processors.normalize">
+            function <span class="apidocSignatureSpan">xml2js.processors.</span>normalize
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.processors.parseBooleans">
+            function <span class="apidocSignatureSpan">xml2js.processors.</span>parseBooleans
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.processors.parseNumbers">
+            function <span class="apidocSignatureSpan">xml2js.processors.</span>parseNumbers
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.processors.stripPrefix">
+            function <span class="apidocSignatureSpan">xml2js.processors.</span>stripPrefix
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+    
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js" id="apidoc.module.xml2js">module xml2js</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Builder" id="apidoc.element.xml2js.Builder">
+        function <span class="apidocSignatureSpan">xml2js.</span>Builder
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder(opts) {
+  var key, ref, value;
+  this.options = {};
+  ref = exports.defaults[&#x22;0.2&#x22;];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var obj = {name: &#x22;Super&#x22;, Surname: &#x22;Man&#x22;, age: 23};
+
+var builder = new xml2js.<span class="apidocCodeKeywordSpan">Builder</span>();
+var xml = builder.buildObject(obj);
+```
+
+At the moment, a one to one bi-directional conversion is guaranteed only for
+default configuration, except for `attrkey`, `charkey` and `explicitArray` options
+you can redefine to your taste. Writing CDATA is supported via setting the `cdata`
+option to `true`.
+...</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser" id="apidoc.element.xml2js.Parser">
+        function <span class="apidocSignatureSpan">xml2js.</span>Parser
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(opts) {
+  this.parseString = bind(this.parseString, this);
+  this.reset = bind(this.reset, this);
+  this.assignOrPush = bind(this.assignOrPush, this);
+  this.processAsync = bind(this.processAsync, this);
+  var key, ref, value;
+  if (!(this instanceof exports.Parser)) {
+    return new exports.Parser(opts);
+  }
+  this.options = {};
+  ref = exports.defaults[&#x22;0.2&#x22;];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+  if (this.options.xmlns) {
+    this.options.xmlnskey = this.options.attrkey + &#x22;ns&#x22;;
+  }
+  if (this.options.normalizeTags) {
+    if (!this.options.tagNameProcessors) {
+      this.options.tagNameProcessors = [];
+    }
+    this.options.tagNameProcessors.unshift(processors.normalize);
+  }
+  this.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+That&#x27;s right, if you have been using xml-simple or a home-grown
+wrapper, this was added in 0.1.11 just for you:
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var parser = new xml2js.<span class="apidocCodeKeywordSpan">Parser</span>();
+fs.readFile(__dirname + &#x27;/foo.xml&#x27;, function(err, data) {
+    parser.parseString(data, function (err, result) {
+        console.dir(result);
+        console.log(&#x27;Done&#x27;);
+    });
+});
+```
+...</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.ValidationError" id="apidoc.element.xml2js.ValidationError">
+        function <span class="apidocSignatureSpan">xml2js.</span>ValidationError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ValidationError(message) {
+  this.message = message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.parseString" id="apidoc.element.xml2js.parseString">
+        function <span class="apidocSignatureSpan">xml2js.</span>parseString
+        <span class="apidocSignatureSpan">(str, a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseString = function (str, a, b) {
+  var cb, options, parser;
+  if (b != null) {
+    if (typeof b === &#x27;function&#x27;) {
+      cb = b;
+    }
+    if (typeof a === &#x27;object&#x27;) {
+      options = a;
+    }
+  } else {
+    if (typeof a === &#x27;function&#x27;) {
+      cb = a;
+    }
+    options = {};
+  }
+  parser = new exports.Parser(options);
+  return parser.parseString(str, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var parser = new xml2js.Parser();
+fs.readFile(__dirname + &#x27;/foo.xml&#x27;, function(err, data) {
+    parser.<span class="apidocCodeKeywordSpan">parseString</span>(data, function (err, result) {
+        console.dir(result);
+        console.log(&#x27;Done&#x27;);
+    });
+});
+```
+
+Look ma, no event listeners!
+...</pre></li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.Builder" id="apidoc.module.xml2js.Builder">module xml2js.Builder</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Builder.Builder" id="apidoc.element.xml2js.Builder.Builder">
+        function <span class="apidocSignatureSpan">xml2js.</span>Builder
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder(opts) {
+  var key, ref, value;
+  this.options = {};
+  ref = exports.defaults[&#x22;0.2&#x22;];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var obj = {name: &#x22;Super&#x22;, Surname: &#x22;Man&#x22;, age: 23};
+
+var builder = new xml2js.<span class="apidocCodeKeywordSpan">Builder</span>();
+var xml = builder.buildObject(obj);
+```
+
+At the moment, a one to one bi-directional conversion is guaranteed only for
+default configuration, except for `attrkey`, `charkey` and `explicitArray` options
+you can redefine to your taste. Writing CDATA is supported via setting the `cdata`
+option to `true`.
+...</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.Builder.prototype" id="apidoc.module.xml2js.Builder.prototype">module xml2js.Builder.prototype</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Builder.prototype.buildObject" id="apidoc.element.xml2js.Builder.prototype.buildObject">
+        function <span class="apidocSignatureSpan">xml2js.Builder.prototype.</span>buildObject
+        <span class="apidocSignatureSpan">(rootObj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildObject = function (rootObj) {
+  var attrkey, charkey, render, rootElement, rootName;
+  attrkey = this.options.attrkey;
+  charkey = this.options.charkey;
+  if ((Object.keys(rootObj).length === 1) &#x26;&#x26; (this.options.rootName === exports.defaults[&#x27;0.2&#x27;].rootName)) {
+    rootName = Object.keys(rootObj)[0];
+    rootObj = rootObj[rootName];
+  } else {
+    rootName = this.options.rootName;
+  }
+  render = (function(_this) {
+    return function(element, obj) {
+      var attr, child, entry, index, key, value;
+      if (typeof obj !== &#x27;object&#x27;) {
+        if (_this.options.cdata &#x26;&#x26; requiresCDATA(obj)) {
+          element.raw(wrapCDATA(obj));
+        } else {
+          element.txt(obj);
+        }
+      } else {
+        for (key in obj) {
+          if (!hasProp.call(obj, key)) continue;
+          child = obj[key];
+          if (key === attrkey) {
+            if (typeof child === &#x22;object&#x22;) {
+              for (attr in child) {
+                value = child[attr];
+                element = element.att(attr, value);
+              }
+            }
+          } else if (key === charkey) {
+            if (_this.options.cdata &#x26;&#x26; requiresCDATA(child)) {
+              element = element.raw(wrapCDATA(child));
+            } else {
+              element = element.txt(child);
+            }
+          } else if (Array.isArray(child)) {
+            for (index in child) {
+              if (!hasProp.call(child, index)) continue;
+              entry = child[index];
+              if (typeof entry === &#x27;string&#x27;) {
+                if (_this.options.cdata &#x26;&#x26; requiresCDATA(entry)) {
+                  element = element.ele(key).raw(wrapCDATA(entry)).up();
+                } else {
+                  element = element.ele(key, entry).up();
+                }
+              } else {
+                element = render(element.ele(key), entry).up();
+              }
+            }
+          } else if (typeof child === &#x22;object&#x22;) {
+            element = render(element.ele(key), child).up();
+          } else {
+            if (typeof child === &#x27;string&#x27; &#x26;&#x26; _this.options.cdata &#x26;&#x26; requiresCDATA(child)) {
+              element = element.ele(key).raw(wrapCDATA(child)).up();
+            } else {
+              if (child == null) {
+                child = &#x27;&#x27;;
+              }
+              element = element.ele(key, child.toString()).up();
+            }
+          }
+        }
+      }
+      return element;
+    };
+  })(this);
+  rootElement = builder.create(rootName, this.options.xmldec, this.options.doctype, {
+    headless: this.options.headless,
+    allowSurrogateChars: this.options.allowSurrogateChars
+  });
+  return render(rootElement, rootObj).end(this.options.renderOpts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var obj = {name: &#x22;Super&#x22;, Surname: &#x22;Man&#x22;, age: 23};
+
+var builder = new xml2js.Builder();
+var xml = builder.<span class="apidocCodeKeywordSpan">buildObject</span>(obj);
+```
+
+At the moment, a one to one bi-directional conversion is guaranteed only for
+default configuration, except for `attrkey`, `charkey` and `explicitArray` options
+you can redefine to your taste. Writing CDATA is supported via setting the `cdata`
+option to `true`.
+...</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.Parser" id="apidoc.module.xml2js.Parser">module xml2js.Parser</a></h1>
+    
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.Parser" id="apidoc.element.xml2js.Parser.Parser">
+        function <span class="apidocSignatureSpan">xml2js.</span>Parser
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(opts) {
+  this.parseString = bind(this.parseString, this);
+  this.reset = bind(this.reset, this);
+  this.assignOrPush = bind(this.assignOrPush, this);
+  this.processAsync = bind(this.processAsync, this);
+  var key, ref, value;
+  if (!(this instanceof exports.Parser)) {
+    return new exports.Parser(opts);
+  }
+  this.options = {};
+  ref = exports.defaults[&#x22;0.2&#x22;];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+  if (this.options.xmlns) {
+    this.options.xmlnskey = this.options.attrkey + &#x22;ns&#x22;;
+  }
+  if (this.options.normalizeTags) {
+    if (!this.options.tagNameProcessors) {
+      this.options.tagNameProcessors = [];
+    }
+    this.options.tagNameProcessors.unshift(processors.normalize);
+  }
+  this.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+That&#x27;s right, if you have been using xml-simple or a home-grown
+wrapper, this was added in 0.1.11 just for you:
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var parser = new xml2js.<span class="apidocCodeKeywordSpan">Parser</span>();
+fs.readFile(__dirname + &#x27;/foo.xml&#x27;, function(err, data) {
+    parser.parseString(data, function (err, result) {
+        console.dir(result);
+        console.log(&#x27;Done&#x27;);
+    });
+});
+```
+...</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.EventEmitter" id="apidoc.element.xml2js.Parser.EventEmitter">
+        function <span class="apidocSignatureSpan">xml2js.Parser.</span>EventEmitter
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.init" id="apidoc.element.xml2js.Parser.init">
+        function <span class="apidocSignatureSpan">xml2js.Parser.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function () {
+  this.domain = null;
+  if (EventEmitter.usingDomains) {
+    // if there is an active domain, then attach to it.
+    domain = domain || require(&#x27;domain&#x27;);
+    if (domain.active &#x26;&#x26; !(this instanceof domain.Domain)) {
+      this.domain = domain.active;
+    }
+  }
+
+  if (!this._events || this._events === Object.getPrototypeOf(this)._events) {
+    this._events = new EventHandlers();
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.listenerCount" id="apidoc.element.xml2js.Parser.listenerCount">
+        function <span class="apidocSignatureSpan">xml2js.Parser.</span>listenerCount
+        <span class="apidocSignatureSpan">(emitter, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">listenerCount = function (emitter, type) {
+  if (typeof emitter.listenerCount === &#x27;function&#x27;) {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.Parser.prototype" id="apidoc.module.xml2js.Parser.prototype">module xml2js.Parser.prototype</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.prototype.assignOrPush" id="apidoc.element.xml2js.Parser.prototype.assignOrPush">
+        function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>assignOrPush
+        <span class="apidocSignatureSpan">(obj, key, newValue)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assignOrPush = function (obj, key, newValue) {
+  if (!(key in obj)) {
+    if (!this.options.explicitArray) {
+      return obj[key] = newValue;
+    } else {
+      return obj[key] = [newValue];
+    }
+  } else {
+    if (!(obj[key] instanceof Array)) {
+      obj[key] = [obj[key]];
+    }
+    return obj[key].push(newValue);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.prototype.constructor" id="apidoc.element.xml2js.Parser.prototype.constructor">
+        function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(opts) {
+  this.parseString = bind(this.parseString, this);
+  this.reset = bind(this.reset, this);
+  this.assignOrPush = bind(this.assignOrPush, this);
+  this.processAsync = bind(this.processAsync, this);
+  var key, ref, value;
+  if (!(this instanceof exports.Parser)) {
+    return new exports.Parser(opts);
+  }
+  this.options = {};
+  ref = exports.defaults[&#x22;0.2&#x22;];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+  if (this.options.xmlns) {
+    this.options.xmlnskey = this.options.attrkey + &#x22;ns&#x22;;
+  }
+  if (this.options.normalizeTags) {
+    if (!this.options.tagNameProcessors) {
+      this.options.tagNameProcessors = [];
+    }
+    this.options.tagNameProcessors.unshift(processors.normalize);
+  }
+  this.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.prototype.parseString" id="apidoc.element.xml2js.Parser.prototype.parseString">
+        function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>parseString
+        <span class="apidocSignatureSpan">(str, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseString = function (str, cb) {
+  var err, error1;
+  if ((cb != null) &#x26;&#x26; typeof cb === &#x22;function&#x22;) {
+    this.on(&#x22;end&#x22;, function(result) {
+      this.reset();
+      return cb(null, result);
+    });
+    this.on(&#x22;error&#x22;, function(err) {
+      this.reset();
+      return cb(err);
+    });
+  }
+  try {
+    str = str.toString();
+    if (str.trim() === &#x27;&#x27;) {
+      this.emit(&#x22;end&#x22;, null);
+      return true;
+    }
+    str = bom.stripBOM(str);
+    if (this.options.async) {
+      this.remaining = str;
+      setImmediate(this.processAsync);
+      return this.saxParser;
+    }
+    return this.saxParser.write(str).close();
+  } catch (error1) {
+    err = error1;
+    if (!(this.saxParser.errThrown || this.saxParser.ended)) {
+      this.emit(&#x27;error&#x27;, err);
+      return this.saxParser.errThrown = true;
+    } else if (this.saxParser.ended) {
+      throw err;
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require(&#x27;fs&#x27;),
+    xml2js = require(&#x27;xml2js&#x27;);
+
+var parser = new xml2js.Parser();
+fs.readFile(__dirname + &#x27;/foo.xml&#x27;, function(err, data) {
+    parser.<span class="apidocCodeKeywordSpan">parseString</span>(data, function (err, result) {
+        console.dir(result);
+        console.log(&#x27;Done&#x27;);
+    });
+});
+```
+
+Look ma, no event listeners!
+...</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.prototype.processAsync" id="apidoc.element.xml2js.Parser.prototype.processAsync">
+        function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>processAsync
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processAsync = function () {
+  var chunk, err, error1;
+  try {
+    if (this.remaining.length &#x3c;= this.options.chunkSize) {
+      chunk = this.remaining;
+      this.remaining = &#x27;&#x27;;
+      this.saxParser = this.saxParser.write(chunk);
+      return this.saxParser.close();
+    } else {
+      chunk = this.remaining.substr(0, this.options.chunkSize);
+      this.remaining = this.remaining.substr(this.options.chunkSize, this.remaining.length);
+      this.saxParser = this.saxParser.write(chunk);
+      return setImmediate(this.processAsync);
+    }
+  } catch (error1) {
+    err = error1;
+    if (!this.saxParser.errThrown) {
+      this.saxParser.errThrown = true;
+      return this.emit(err);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.Parser.prototype.reset" id="apidoc.element.xml2js.Parser.prototype.reset">
+        function <span class="apidocSignatureSpan">xml2js.Parser.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+  var attrkey, charkey, ontext, stack;
+  this.removeAllListeners();
+  this.saxParser = sax.parser(this.options.strict, {
+    trim: false,
+    normalize: false,
+    xmlns: this.options.xmlns
+  });
+  this.saxParser.errThrown = false;
+  this.saxParser.onerror = (function(_this) {
+    return function(error) {
+      _this.saxParser.resume();
+      if (!_this.saxParser.errThrown) {
+        _this.saxParser.errThrown = true;
+        return _this.emit(&#x22;error&#x22;, error);
+      }
+    };
+  })(this);
+  this.saxParser.onend = (function(_this) {
+    return function() {
+      if (!_this.saxParser.ended) {
+        _this.saxParser.ended = true;
+        return _this.emit(&#x22;end&#x22;, _this.resultObject);
+      }
+    };
+  })(this);
+  this.saxParser.ended = false;
+  this.EXPLICIT_CHARKEY = this.options.explicitCharkey;
+  this.resultObject = null;
+  stack = [];
+  attrkey = this.options.attrkey;
+  charkey = this.options.charkey;
+  this.saxParser.onopentag = (function(_this) {
+    return function(node) {
+      var key, newValue, obj, processedKey, ref;
+      obj = {};
+      obj[charkey] = &#x22;&#x22;;
+      if (!_this.options.ignoreAttrs) {
+        ref = node.attributes;
+        for (key in ref) {
+          if (!hasProp.call(ref, key)) continue;
+          if (!(attrkey in obj) &#x26;&#x26; !_this.options.mergeAttrs) {
+            obj[attrkey] = {};
+          }
+          newValue = _this.options.attrValueProcessors ? processName(_this.options.attrValueProcessors, node.attributes[key]) : \
+node.attributes[key];
+          processedKey = _this.options.attrNameProcessors ? processName(_this.options.attrNameProcessors, key) : key;
+          if (_this.options.mergeAttrs) {
+            _this.assignOrPush(obj, processedKey, newValue);
+          } else {
+            obj[attrkey][processedKey] = newValue;
+          }
+        }
+      }
+      obj[&#x22;#name&#x22;] = _this.options.tagNameProcessors ? processName(_this.options.tagNameProcessors, node.name) : node.name;
+      if (_this.options.xmlns) {
+        obj[_this.options.xmlnskey] = {
+          uri: node.uri,
+          local: node.local
+        };
+      }
+      return stack.push(obj);
+    };
+  })(this);
+  this.saxParser.onclosetag = (function(_this) {
+    return function() {
+      var cdata, emptyStr, err, error1, key, node, nodeName, obj, objClone, old, s, xpath;
+      obj = stack.pop();
+      nodeName = obj[&#x22;#name&#x22;];
+      if (!_this.options.explicitChildren || !_this.options.preserveChildrenOrder) {
+        delete obj[&#x22;#name&#x22;];
+      }
+      if (obj.cdata === true) {
+        cdata = obj.cdata;
+        delete obj.cdata;
+      }
+      s = stack[stack.length - 1];
+      if (obj[charkey].match(/^\s*$/) &#x26;&#x26; !cdata) {
+        emptyStr = obj[charkey];
+        delete obj[charkey];
+      } else {
+        if (_this.options.trim) {
+          obj[charkey] = obj[charkey].trim();
+        }
+        if (_this.options.normalize) {
+          obj[charkey] = obj[charkey].replace(/\s{2,}/g, &#x22; &#x22;).trim();
+        }
+        obj[charkey] = _this.options.valueProcessors ? processName(_this.options.valueProcessors, obj[charkey]) : obj[charkey];
+        if (Object.keys(obj).length === 1 &#x26;&#x26; charkey in obj &#x26;&#x26; !_this.EXPLICIT_CHARKEY) {
+          obj = obj[charkey];
+        }
+      }
+      if (isEmpty(obj)) {
+        obj = _this.options.emptyTag !== &#x27;&#x27; ? _this.options.emptyTag : emptyStr;
+      }
+      if (_this.options.validator != null) {
+        xpath = &#x22;/&#x22; + ((function() {
+          var i, len, results;
+          results = [];
+          for (i = 0, len = stack.length; i &#x3c; len; i++) {
+            node = stack[i];
+            results.push(node[&#x22;#name&#x22;]);
+          }
+          return results;
+        })()).concat(nodeName).join(&#x22;/&#x22;);
+        try {
+          obj = _this.options.validator(xpath, s &#x26;&#x26; s[nodeName], obj);
+        } catch (error1) {
+          err = error1;
+          _this.emit(&#x22;error&#x22;, err);
+        }
+      }
+      if (_this.options.explicitChildren &#x26;&#x26; !_this.options.mergeAttrs &#x26;&#x26; typeof obj === &#x27;object&#x27;) {
+        if (!_this.options.preserveChildrenOrder) {
+          node = {};
+          if (_this.options.attrkey in obj) {
+            node[ ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.ValidationError" id="apidoc.module.xml2js.ValidationError">module xml2js.ValidationError</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.ValidationError.ValidationError" id="apidoc.element.xml2js.ValidationError.ValidationError">
+        function <span class="apidocSignatureSpan">xml2js.</span>ValidationError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ValidationError(message) {
+  this.message = message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.ValidationError.prototype" id="apidoc.module.xml2js.ValidationError.prototype">module xml2js.ValidationError.prototype</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.ValidationError.prototype.constructor" id="apidoc.element.xml2js.ValidationError.prototype.constructor">
+        function <span class="apidocSignatureSpan">xml2js.ValidationError.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ValidationError(message) {
+  this.message = message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.bom" id="apidoc.module.xml2js.bom">module xml2js.bom</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.bom.stripBOM" id="apidoc.element.xml2js.bom.stripBOM">
+        function <span class="apidocSignatureSpan">xml2js.bom.</span>stripBOM
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripBOM = function (str) {
+  if (str[0] === &#x27;\uFEFF&#x27;) {
+    return str.substring(1);
+  } else {
+    return str;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.processors" id="apidoc.module.xml2js.processors">module xml2js.processors</a></h1>
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.processors.firstCharLowerCase" id="apidoc.element.xml2js.processors.firstCharLowerCase">
+        function <span class="apidocSignatureSpan">xml2js.processors.</span>firstCharLowerCase
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">firstCharLowerCase = function (str) {
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.processors.normalize" id="apidoc.element.xml2js.processors.normalize">
+        function <span class="apidocSignatureSpan">xml2js.processors.</span>normalize
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalize = function (str) {
+  return str.toLowerCase();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.processors.parseBooleans" id="apidoc.element.xml2js.processors.parseBooleans">
+        function <span class="apidocSignatureSpan">xml2js.processors.</span>parseBooleans
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseBooleans = function (str) {
+  if (/^(?:true|false)$/i.test(str)) {
+    str = str.toLowerCase() === &#x27;true&#x27;;
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.processors.parseNumbers" id="apidoc.element.xml2js.processors.parseNumbers">
+        function <span class="apidocSignatureSpan">xml2js.processors.</span>parseNumbers
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseNumbers = function (str) {
+  if (!isNaN(str)) {
+    str = str % 1 === 0 ? parseInt(str, 10) : parseFloat(str);
+  }
+  return str;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+    
+    <h2>
+        <a href="#apidoc.element.xml2js.processors.stripPrefix" id="apidoc.element.xml2js.processors.stripPrefix">
+        function <span class="apidocSignatureSpan">xml2js.processors.</span>stripPrefix
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stripPrefix = function (str) {
+  return str.replace(prefixMatch, &#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+    
+    
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
