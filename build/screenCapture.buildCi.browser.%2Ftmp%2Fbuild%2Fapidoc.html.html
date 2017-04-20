@@ -92,6 +92,12 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>xml2js</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.</span>Builder.prototype</span>
 
         </li>
@@ -370,6 +376,58 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.xml2js.xml2js">module xml2js.xml2js</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.xml2js.Builder">
+            function <span class="apidocSignatureSpan">xml2js.xml2js.</span>Builder
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.xml2js.Parser">
+            function <span class="apidocSignatureSpan">xml2js.xml2js.</span>Parser
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.xml2js.ValidationError">
+            function <span class="apidocSignatureSpan">xml2js.xml2js.</span>ValidationError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.xml2js.xml2js.parseString">
+            function <span class="apidocSignatureSpan">xml2js.xml2js.</span>parseString
+            <span class="apidocSignatureSpan">(str, a, b)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.xml2js.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">xml2js.xml2js.</span>processors</span>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -537,6 +595,8 @@ fs.readFile(__dirname + '/foo.xml', function(err, data) {
 Look ma, no event listeners!
 ...</pre></li>
     </ul>
+
+
 
 
 
@@ -865,7 +925,24 @@ fs.readFile(__dirname + '/foo.xml', function(err, data) {
     return obj[key].push(newValue);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (!hasProp.call(ref, key)) continue;
+    if (!(attrkey in obj) &amp;&amp; !_this.options.mergeAttrs) {
+      obj[attrkey] = {};
+    }
+    newValue = _this.options.attrValueProcessors ? processName(_this.options.attrValueProcessors, node.attributes[key]) : node.attributes
+[key];
+    processedKey = _this.options.attrNameProcessors ? processName(_this.options.attrNameProcessors, key) : key;
+    if (_this.options.mergeAttrs) {
+      _this.<span class="apidocCodeKeywordSpan">assignOrPush</span>(obj, processedKey, newValue);
+    } else {
+      obj[attrkey][processedKey] = newValue;
+    }
+  }
+}
+obj["#name"] = _this.options.tagNameProcessors ? processName(_this.options.tagNameProcessors, node.name) : node.name;
+if (_this.options.xmlns) {
+...</pre></li>
     </ul>
 
 
@@ -1135,7 +1212,23 @@ node.attributes[key];
           node = {};
           if (_this.options.attrkey in obj) {
             node[_ ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  if (this.options.normalizeTags) {
+    if (!this.options.tagNameProcessors) {
+      this.options.tagNameProcessors = [];
+    }
+    this.options.tagNameProcessors.unshift(processors.normalize);
+  }
+  this.<span class="apidocCodeKeywordSpan">reset</span>();
+}
+
+Parser.prototype.processAsync = function() {
+  var chunk, err, error1;
+  try {
+    if (this.remaining.length &lt;= this.options.chunkSize) {
+      chunk = this.remaining;
+...</pre></li>
     </ul>
 
 
@@ -1216,7 +1309,23 @@ node.attributes[key];
     return str;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+try {
+  str = str.toString();
+  if (str.trim() === '') {
+    this.emit("end", null);
+    return true;
+  }
+  str = bom.<span class="apidocCodeKeywordSpan">stripBOM</span>(str);
+  if (this.options.async) {
+    this.remaining = str;
+    setImmediate(this.processAsync);
+    return this.saxParser;
+  }
+  return this.saxParser.write(str).close();
+} catch (error1) {
+...</pre></li>
     </ul>
 
 
@@ -1304,6 +1413,179 @@ node.attributes[key];
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.xml2js.xml2js" id="apidoc.module.xml2js.xml2js">module xml2js.xml2js</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.xml2js.xml2js.Builder" id="apidoc.element.xml2js.xml2js.Builder">
+        function <span class="apidocSignatureSpan">xml2js.xml2js.</span>Builder
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Builder(opts) {
+  var key, ref, value;
+  this.options = {};
+  ref = exports.defaults["0.2"];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require('fs'),
+    xml2js = require('xml2js');
+
+var obj = {name: "Super", Surname: "Man", age: 23};
+
+var builder = new xml2js.<span class="apidocCodeKeywordSpan">Builder</span>();
+var xml = builder.buildObject(obj);
+```
+
+At the moment, a one to one bi-directional conversion is guaranteed only for
+default configuration, except for `attrkey`, `charkey` and `explicitArray` options
+you can redefine to your taste. Writing CDATA is supported via setting the `cdata`
+option to `true`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml2js.xml2js.Parser" id="apidoc.element.xml2js.xml2js.Parser">
+        function <span class="apidocSignatureSpan">xml2js.xml2js.</span>Parser
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(opts) {
+  this.parseString = bind(this.parseString, this);
+  this.reset = bind(this.reset, this);
+  this.assignOrPush = bind(this.assignOrPush, this);
+  this.processAsync = bind(this.processAsync, this);
+  var key, ref, value;
+  if (!(this instanceof exports.Parser)) {
+    return new exports.Parser(opts);
+  }
+  this.options = {};
+  ref = exports.defaults["0.2"];
+  for (key in ref) {
+    if (!hasProp.call(ref, key)) continue;
+    value = ref[key];
+    this.options[key] = value;
+  }
+  for (key in opts) {
+    if (!hasProp.call(opts, key)) continue;
+    value = opts[key];
+    this.options[key] = value;
+  }
+  if (this.options.xmlns) {
+    this.options.xmlnskey = this.options.attrkey + "ns";
+  }
+  if (this.options.normalizeTags) {
+    if (!this.options.tagNameProcessors) {
+      this.options.tagNameProcessors = [];
+    }
+    this.options.tagNameProcessors.unshift(processors.normalize);
+  }
+  this.reset();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+That's right, if you have been using xml-simple or a home-grown
+wrapper, this was added in 0.1.11 just for you:
+
+```javascript
+var fs = require('fs'),
+    xml2js = require('xml2js');
+
+var parser = new xml2js.<span class="apidocCodeKeywordSpan">Parser</span>();
+fs.readFile(__dirname + '/foo.xml', function(err, data) {
+    parser.parseString(data, function (err, result) {
+        console.dir(result);
+        console.log('Done');
+    });
+});
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml2js.xml2js.ValidationError" id="apidoc.element.xml2js.xml2js.ValidationError">
+        function <span class="apidocSignatureSpan">xml2js.xml2js.</span>ValidationError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ValidationError(message) {
+  this.message = message;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.xml2js.xml2js.parseString" id="apidoc.element.xml2js.xml2js.parseString">
+        function <span class="apidocSignatureSpan">xml2js.xml2js.</span>parseString
+        <span class="apidocSignatureSpan">(str, a, b)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseString = function (str, a, b) {
+  var cb, options, parser;
+  if (b != null) {
+    if (typeof b === 'function') {
+      cb = b;
+    }
+    if (typeof a === 'object') {
+      options = a;
+    }
+  } else {
+    if (typeof a === 'function') {
+      cb = a;
+    }
+    options = {};
+  }
+  parser = new exports.Parser(options);
+  return parser.parseString(str, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var fs = require('fs'),
+    xml2js = require('xml2js');
+
+var parser = new xml2js.Parser();
+fs.readFile(__dirname + '/foo.xml', function(err, data) {
+    parser.<span class="apidocCodeKeywordSpan">parseString</span>(data, function (err, result) {
+        console.dir(result);
+        console.log('Done');
+    });
+});
+```
+
+Look ma, no event listeners!
+...</pre></li>
+    </ul>
+
+
+
+
 
 
 </div>
